@@ -17,7 +17,7 @@ function getComputerChoice() {
  return choice;
 }
 
-function getPlayerChoice() {
+function getPlayerChoice(input) {
     let choice = prompt("Rock, Paper, or Scissors?");
     choice = choice.toLowerCase();
     return choice
@@ -63,4 +63,10 @@ function playRound(player, computer) {
 
 }
 
+const buttons = document.querySelectorAll('button');
 
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(playRound(button.id, getComputerChoice()));
+    })
+})
