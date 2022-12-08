@@ -39,7 +39,7 @@ function playRound(player, computer) {
                 result = loss;
                 break;
             case player === "scissors" && computer === "paper":
-                results = win;
+                result = win;
                 break;
             case player === "scissors" && computer === "rock":
                 result = loss;
