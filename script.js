@@ -47,39 +47,43 @@ function playRound(player, computer) {
   const loss = "loss";
   let result = "";
 
-  switch (true) {
-    case player === "rock" && computer === "scissors":
-      result = win;
-      break;
-    case player === "rock" && computer === "paper":
-      result = loss;
-      break;
-    case player === "paper" && computer === "rock":
-      result = win;
-      break;
-    case player === "paper" && computer === "scissors":
-      result = loss;
-      break;
-    case player === "scissors" && computer === "paper":
-      result = win;
-      break;
-    case player === "scissors" && computer === "rock":
-      result = loss;
-      break;
-    case player === computer:
-      result = tie;
-      break;
-    default:
-      return tie;
-  }
+        switch(true){
+            case player === "rock" && computer === "scissors":
+                result = win;
+                break;
+            case player === "rock" && computer === "paper":
+                result = loss;
+                break;
+            case player === "paper" && computer === "rock":
+                result = win;
+                break;
+            case player === "paper" && computer === "scissors":
+                result = loss;
+                break;
+            case player === "scissors" && computer === "paper":
+                results = win;
+                break;
+            case player === "scissors" && computer === "rock":
+                result = loss;
+                break;
+            case player === computer:
+                result = tie;
+                break;
+        }
 
-  if (playerScore < 5 && compScore < 5) {
-    updateScore(result, computer);
-  }
-  if (playerScore === 5 || compScore === 5) {
-    endGame(result);
-  }
-  return result;
+   
+    
+
+    if (playerScore < 5 && compScore < 5){
+        updateScore(result, computer);
+    }
+    if (playerScore === 5 || compScore === 5){
+        endGame(result);
+    }
+      
+
+    
+
 }
 
 const buttons = document.querySelectorAll("button");
