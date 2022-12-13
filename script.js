@@ -3,28 +3,28 @@ let compScore = 0;
 
 function getComputerChoice() {
   const randInt = Math.floor(Math.random() * 3);
-  let choice = '';
+  let choice = "";
 
   if (randInt === 0) {
-    choice = 'rock';
+    choice = "rock";
   } else if (randInt === 1) {
-    choice = 'paper';
+    choice = "paper";
   } else {
-    choice = 'scissors';
+    choice = "scissors";
   }
 
   return choice;
 }
 function updateScore(result, computer) {
-  const dispToUpdate = document.querySelector('#display');
-  if (result === 'win') {
+  const dispToUpdate = document.querySelector("#display");
+  if (result === "win") {
     playerScore += 1;
-    const textToUpdate = document.querySelector('#player-score');
+    const textToUpdate = document.querySelector("#player-score");
     textToUpdate.textContent = `Your Score Is: ${playerScore.toString()}`;
     dispToUpdate.textContent = `Computer picked ${computer}, you won!`;
-  } else if (result === 'loss') {
+  } else if (result === "loss") {
     compScore += 1;
-    const textToUpdate = document.querySelector('#computer-score');
+    const textToUpdate = document.querySelector("#computer-score");
     textToUpdate.textContent = `Computer Score Is: ${compScore.toString()}`;
     dispToUpdate.textContent = `Computer picked ${computer}, you lost!`;
   } else {
@@ -33,37 +33,37 @@ function updateScore(result, computer) {
 }
 
 function endGame() {
-  const dispToUpdate = document.querySelector('#display');
+  const dispToUpdate = document.querySelector("#display");
 
   if (playerScore === 5) {
-    dispToUpdate.textContent = 'Game Over, you won! :)';
+    dispToUpdate.textContent = "Game Over, you won! :)";
   } else {
-    dispToUpdate.textContent = 'Game Over, you lost! :(';
+    dispToUpdate.textContent = "Game Over, you lost! :(";
   }
 }
 function playRound(player, computer) {
-  const tie = 'tie';
-  const win = 'win';
-  const loss = 'loss';
-  let result = '';
+  const tie = "tie";
+  const win = "win";
+  const loss = "loss";
+  let result = "";
 
   switch (true) {
-    case player === 'rock' && computer === 'scissors':
+    case player === "rock" && computer === "scissors":
       result = win;
       break;
-    case player === 'rock' && computer === 'paper':
+    case player === "rock" && computer === "paper":
       result = loss;
       break;
-    case player === 'paper' && computer === 'rock':
+    case player === "paper" && computer === "rock":
       result = win;
       break;
-    case player === 'paper' && computer === 'scissors':
+    case player === "paper" && computer === "scissors":
       result = loss;
       break;
-    case player === 'scissors' && computer === 'paper':
+    case player === "scissors" && computer === "paper":
       result = win;
       break;
-    case player === 'scissors' && computer === 'rock':
+    case player === "scissors" && computer === "rock":
       result = loss;
       break;
     case player === computer:
@@ -82,10 +82,10 @@ function playRound(player, computer) {
   return result;
 }
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-  button.addEventListener('click', () => {
+  button.addEventListener("click", () => {
     playRound(button.id, getComputerChoice());
   });
 });
